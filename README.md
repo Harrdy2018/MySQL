@@ -18,3 +18,7 @@ Query OK, 0 rows affected (0.32 sec)
 * Navicat创建数据表
 * 直接找到test库的tables新建一张表就可以了
 * 或者点击Query-->>New Query，然后在里面输入创表语句，怎么样样把字体调大？按住ctrl向上滚动鼠标轮
+
+***
+# 主键约束
+**作用：保证实体的完整性**
