@@ -22,3 +22,58 @@ Query OK, 0 rows affected (0.32 sec)
 ***
 # 主键约束
 **作用：保证实体的完整性**
+* Ex.1 为玩家表的QQ列添加主键约束,是玩家QQ这一列不能出现重复的值，也不能为空
+```mysql
+mysql> use test
+Database changed
+mysql> create table playerC(QQ varchar(20) not null primary key,playname varchar(50) not null,sex char(2) not null,
+    ->  birthday date not null,mobile char(11) not null);
+Query OK, 0 rows affected (0.26 sec)
+```
+
+# 外键约束
+**保证引用的完整性**
+* Ex.1 为分数表添加外键约束
+```mysql
+create table scores(
+user_qq varchar(20) not null
+references playerb(user_qq),
+scores int not null
+);
+```
+
+# 检查约束
+**保证域完整性**
+* Ex.1 为游戏表添加检查约束
+```mysql
+create table Games(
+gno int not null check(gno>0),
+gname varchar(50) not null,
+gtype varchar(20) not null
+);
+```
+
+# 默认约束
+**保证域完整性**
+* Ex.1 玩家表的性别默认为男性
+```mysql
+create table users(
+user_qq VARCHAR(20) not null,
+user_name VARCHAR(50) not null,
+user_sex CHAR(2) not null DEFAULT'男',
+user_birthday datetime not null,
+ueser_phone char(11) not null
+);
+```
+
+***
+# 自增列
+**保证实体完整性**
+* Ex.1 游戏编号自增
+```mysql
+create table games(
+gno int not null auto_increment,
+gname varchar(50) not null,
+gtype varchar(20) not null
+);
+```
