@@ -71,8 +71,8 @@ ueser_phone char(11) not null
 **保证实体完整性**
 * Ex.1 游戏编号自增
 ```mysql
-create table games(
-gno int not null auto_increment,
+create table game(
+gno int not null primary key auto_increment,
 gname varchar(50) not null,
 gtype varchar(20) not null
 );
