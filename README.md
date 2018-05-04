@@ -82,5 +82,5 @@ gtype varchar(20) not null
 # 查看表基本结构
 * describe/desc table_name
 ***
-![查看表基本结构]()
+![查看表基本结构](https://github.com/Harrdy2018/MySQL/blob/master/MySQL1.png)
 ***
