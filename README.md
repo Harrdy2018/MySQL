@@ -13,7 +13,10 @@
 * [添加删除字段](#添加删除字段)
 * [](#)
 * [](#)
-
+* [](#)
+* [](#)
+* [](#)
+* [](#)
 
 ***
 # 如何创建一张表
@@ -184,3 +187,42 @@ mysql> alter table game
 Query OK, 0 rows affected (0.45 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+
+***
+# 增补约束
+* 添加主键语法
+* alter table table_name
+* add constraint con_name
+* primary key(col_name)
+```MySQL
+mysql> use test
+Database changed
+mysql> alter table users
+    -> add constraint pk_users_userqq
+    -> primary key(userqq);
+Query OK, 0 rows affected (0.40 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+***
+* 添加外键约束
+* alter table f_table
+* add constraint con_name
+* foreign key(f_col) references m_table(m_col)
+
+***
+* 添加检查约束
+* alter table table_name
+* add constraint con_name
+* check(exp)
+
+***
+* 添加默认值
+* alter table table_name
+* alter col_name set default value
+
+***
+* 添加自动增长
+* alter table table_name
+* modify column col_name col_type col_null auto_increment
+* primary key
