@@ -127,3 +127,16 @@ Create Table: CREATE TABLE `game` (
 1 row in set (0.00 sec)
 ```
 **如果不加\G信息会非常乱，相当于格式化输出；展示整张表的创建过程！！！**
+
+***
+# 修改表名
+* alter table old_name rename to new_name
+```MySQL
+mysql> use test
+Database changed
+mysql> alter table game rename to QQ_game;
+Query OK, 0 rows affected (0.20 sec)
+```
+
+***
+# 
