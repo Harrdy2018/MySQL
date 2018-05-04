@@ -12,8 +12,8 @@
 * [修改字段数据类型](#修改字段数据类型)
 * [添加删除字段](#添加删除字段)
 * [增补约束](#增补约束)
-* [](#)
-* [](#)
+* [删除无关联数据表](#删除无关联数据表)
+* [删除有关联数据表](#删除有关联数据表)
 * [](#)
 * [](#)
 * [](#)
@@ -226,3 +226,15 @@ Records: 0  Duplicates: 0  Warnings: 0
 * alter table table_name
 * modify column col_name col_type col_null auto_increment
 * primary key
+
+***
+# 删除无关联数据表
+* drop table [if exists] table_name1,table_name2
+
+***
+# 删除有关联数据表
+* alter table f_table_name drop foreign key con_name
+* drop table table1,table2...
+
+***
+#
