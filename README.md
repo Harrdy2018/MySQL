@@ -84,3 +84,11 @@ gtype varchar(20) not null
 ***
 ![查看表基本结构](https://github.com/Harrdy2018/MySQL/blob/master/MySQL1.png)
 ***
+```
+Field:字段名
+Type:字段类型
+NULL:是否可以为空
+Key:是否编制索引
+Default:默认值
+Extra:附加信息，如自增列
+```
