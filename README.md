@@ -7,10 +7,10 @@
 * [自增列](#自增列)
 * [查看表基本结构](#查看表基本结构)
 * [查看表详细结构](#查看表详细结构)
-* [](#)
-* [](#)
-* [](#)
-* [](#)
+* [修改表名](#修改表名)
+* [修改字段名](#修改字段名)
+* [修改字段数据类型](#修改字段数据类型)
+* [添加删除字段](#添加删除字段)
 * [](#)
 * [](#)
 
@@ -139,4 +139,48 @@ Query OK, 0 rows affected (0.20 sec)
 ```
 
 ***
-# 
+# 修改字段名
+* alter table table_name
+* change old_name new_name new_type
+```MySQL
+mysql> use test
+Database changed
+mysql> alter table game
+    -> change gno game_id varchar(20);
+Query OK, 2 rows affected (0.75 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+```
+
+***
+# 修改字段数据类型
+* alter table table_name
+* modify col_name new_type
+```MySQL
+mysql> use test
+Database changed
+mysql> alter table game
+    -> modify gno varchar(20);
+Query OK, 2 rows affected (0.55 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+```
+
+***
+# 添加删除字段
+* alter table table_name
+* add new_col_name new_type
+***
+* alter table table_name
+* drop col_name
+```MySQL
+mysql> use test
+Database changed
+mysql> alter table game
+    -> add a int;
+Query OK, 0 rows affected (0.60 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table game
+    -> drop a;
+Query OK, 0 rows affected (0.45 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
