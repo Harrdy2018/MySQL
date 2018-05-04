@@ -92,3 +92,22 @@ Key:是否编制索引
 Default:默认值
 Extra:附加信息，如自增列
 ```
+
+***
+# 查看表详细结构
+* show create table table_name
+```MySQL
+mysql> use test
+Database changed
+mysql> show create table game \G
+*************************** 1. row ***************************
+       Table: game
+Create Table: CREATE TABLE `game` (
+  `gno` int(11) NOT NULL AUTO_INCREMENT,
+  `gname` varchar(50) NOT NULL,
+  `gtype` varchar(20) NOT NULL,
+  PRIMARY KEY (`gno`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
+1 row in set (0.00 sec)
+```
+**如果不加\G信息会非常乱，相当于格式化输出；展示整张表的创建过程！！！**
