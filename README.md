@@ -15,7 +15,7 @@
 * [删除无关联数据表](#删除无关联数据表)
 * [删除有关联数据表](#删除有关联数据表)
 * [插入数据](#插入数据)
-* [](#)
+* [修改数据](#修改数据)
 * [](#)
 
 ***
@@ -242,3 +242,9 @@ Records: 0  Duplicates: 0  Warnings: 0
 * 如果插入的值有默认值的话，可以用关键值default代替
 * 为特定列插入值 insert [into] table_name(col1,col2...coln) values(v1,v2...vn);
 * 一次性插入多条记录 insert [into] table_name(col1,col2...coln) values(v1,v2...vn),(v1,v2...vn)...;
+
+***
+# 修改数据
+* 修改全部数据 update table_name set{col_name=expression}[...n];
+* 列上的值全部加上100 update scores set score=score+100;
+* 修改特定数据 update table_name set{col_name=expression}[...n] where condition_expression;
