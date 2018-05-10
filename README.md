@@ -237,4 +237,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 * drop table table1,table2...
 
 ***
-#
+# 插入数据
+* 所有列都插入值 insert [into] table_name values(v1,v2...vn);
+* 如果插入的值有默认值的话，可以用关键值default代替
+* 为特定列插入值 insert [into] table_name(col1,col2...coln) values(v1,v2...vn);
+* 一次性插入多条记录 insert [into] table_name(col1,col2...coln) values(v1,v2...vn),(v1,v2...vn)...;
