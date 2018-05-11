@@ -19,7 +19,7 @@
 * [删除数据](#删除数据)
 * [查询](#查询)
 * [汇总和分组数据](#汇总和分组数据)
-* [](#)
+* [连接查询](#连接查询)
 
 ***
 # 如何创建一张表
@@ -395,3 +395,68 @@ order by avg(score) desc
 * 使用聚合函数统计
 * having字句筛选分组
 * 使用order by排序
+
+***
+# 连接查询
+```
+如果昵称在users表，游戏名在games表，分数在scores表
+select user_name as '昵称',
+game as '游戏名称',
+score as '分数'
+from users,games,scores
+where users.user_qq=scores.user_qq and games.gno=scores.gno
+
+内连接
+相连接的两张表地位平等
+如果一张表中在另一张表不存在对应数据，则不做连接
+select user_name as '昵称',
+score as '分数'
+from users,scores
+where users.user_qq=scores.user_qq and games
+from字句后面出现多个表名，这种连接方式即属于内连接，是隐式内连接
+
+显示内连接格式
+select col_list
+from table1 [inner] join table2
+on table1.col=table2.col
+
+select user_name as '昵称',
+game as '游戏名称',
+score as '分数'
+from games inner join scores
+on games.gno=scores.gno
+inner join users
+on users.user_qq=scores.user_qq
+
+查询每个玩家的昵称，总分和平均分
+select user_name as '昵称',
+sum(score) as '总分',
+avg(score) as '平均分'
+from users u inner join scores s
+on s.user_qq=u.user_qq
+group by u.user_qq,u.user_name
+
+查询平均分大于3500的分数信息，显示玩家昵称，总分，平均分，并按照平均分数将降序排列
+select user_name as '昵称',sum(score) as '总分',avg(score) as '平均分'
+from users u inner join scores s
+on s.user_qq=u.user_qq
+group by u.user_qq,u.user_name
+having avg(score)>3500
+order by avg(score) desc
+
+外连接
+左外连接和右外连接
+做连接的两个表地位不平等，其中一张是基础表
+基础表中的每条数据是必出现的，即使没有，用null补
+左外连接左是基础表，右外连接右是基础表
+语句中先出现的表为左表，后出现的表为右表
+select col_list
+from table1 left|right[outer] join table2
+on table1.col=table2.col
+
+要求查询所有关于5号游戏的分数信息
+select user_name as '昵称',gno as '游戏编号',score as '分数'
+from users u left join scores s
+on u.user_qq=s.user_qq
+and s.gno=5
+```
