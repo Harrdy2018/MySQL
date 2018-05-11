@@ -351,3 +351,47 @@ avg(score) as '平均分数',
 max(score) as '最高分数'
 from scores where user_qq='12301';
 ```
+
+***
+* 在结果集内分组
+* 使用group by分组
+```
+select user_qq,
+sum(score) as '总分数',
+avg(score) as '平均分数',
+max(score) as '最高分数'
+from scores
+group by user_qq
+
+select user_qq,
+avg(score) as '平均分数'
+from scores
+group by user_qq
+```
+
+***
+* 筛分组结果
+```
+select user_qq,
+sum(score) as '总分数',
+avg(score) as '平均分数',
+from scores
+group by user_qq
+having avg(score)>4000
+
+select user_qq,
+sum(score) as '总分数',
+avg(score) as '平均分数',
+from scores
+group by user_qq
+order by avg(score) desc
+```
+
+***
+* select语句执行顺序
+* from指定数据源
+* where第一次筛选
+*　group by分组
+* 使用聚合函数统计
+* having字句筛选分组
+* 使用order by排序
