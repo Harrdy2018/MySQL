@@ -273,3 +273,38 @@ from table1,table2...tablen
 * distinct关键字 消除结果集中的重复行 select distinct user_qq from scores;
 * limit关键字 指定结果集中数据的显示范围 select `*` from users limit 2,3;
 * limit关键字 只显示3条数据 select `*` from users limit 3;
+* 普通条件查询 select * from users where user_qq='1035525823';
+* 普通条件查询 select * from scores where scores>200;
+```
+比较运算符
+等于                                 =
+不等于                               <>
+大于                                 >
+大于等于                             >=
+小于                                 <
+小于等于                             <=
+```
+* 普通条件查询 select * from scores where gno=1 and scores>200;
+```
+逻辑运算符
+并且                                 and
+或者                                 or
+非                                   not
+```
+* 模糊查询 select * from scores where scores>2500 and score<=3000;
+* 模糊查询 select * from scores where score between 2500 and 3000;此方法边界全部包含，这两个数字不能换位置，也就是2500<=x<=3000
+* 模糊查询 select * from scores where score not between 2500 and 3000;
+```
+通配符
+_     一个字符
+%     任意长度 
+[]    指定范围内
+[^]   不在括号中
+```
+* select `*` from users where user_name like '孙%';
+* select `*` from users where user_name not like '孙%';
+```
+查询空值的运算符
+select * from users where user_birthday is null;
+select * from users where user_birthday is not null;
+```
