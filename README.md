@@ -248,3 +248,24 @@ Records: 0  Duplicates: 0  Warnings: 0
 * 修改全部数据 update table_name set{col_name=expression}[...n];
 * 列上的值全部加上100 update scores set score=score+100;
 * 修改特定数据 update table_name set{col_name=expression}[...n] where condition_expression;
+
+***
+# 删除数据
+* 使用delete命令删除数据 delete [from] table_name [where condition_expression];
+* 使用truncate table删除数据 truncate table table_name;清空表中的数据
+
+***
+# 查询
+* 查询和提取数据的过程是客户端和服务器交互的过程
+```
+select col1,col2...coln
+from table1,table2...tablen
+[where conditions]
+[group by group_by_list]
+[having conditions]
+[order by order_list [asc|desc]]
+```
+* 查询表的全部行和列 select user_qq,user_name,user_sex,user_birthday,user_phone from users;
+* 查询表的全部行和列 select `*` from users;
+* 查询表的部分列 select user_qq,user_name from users;
+* 别名使用 select user_qq as '玩家QQ',user_name as '玩家姓名' from users;
