@@ -308,3 +308,18 @@ _     一个字符
 select * from users where user_birthday is null;
 select * from users where user_birthday is not null;
 ```
+
+***
+```
+select col_list from table_name order by order_by_list[asc|desc]
+
+select * from scores where gno=1 
+order by score asc;
+
+select * from scores where gno=1 
+order by score desc;
+
+多列排序
+select * from scores
+order by gno asc,score desc;
+```
