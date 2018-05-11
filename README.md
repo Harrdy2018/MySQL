@@ -269,3 +269,7 @@ from table1,table2...tablen
 * 查询表的全部行和列 select `*` from users;
 * 查询表的部分列 select user_qq,user_name from users;
 * 别名使用 select user_qq as '玩家QQ',user_name as '玩家姓名' from users;
+* 别名使用 select user_qq '玩家QQ',user_name '玩家姓名' from users;
+* distinct关键字 消除结果集中的重复行 select distinct user_qq from scores;
+* limit关键字 指定结果集中数据的显示范围 select `*` from users limit 2,3;
+* limit关键字 只显示3条数据 select `*` from users limit 3;
