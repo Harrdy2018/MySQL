@@ -339,3 +339,15 @@ order by gno asc,score desc;
 |max()|数字，字符，datetime|返回指定列中的最大数字，最近的日期或者最大的字符串|
 |count()|任意基于行的数据类型|统计结果集合中全部记录行的数量|
 ***
+* select count(user_qq) from users;
+* select count(`*`) from users;
+* select sum(score) as '总分数' from scores where user_qq='12301';
+* select avg(score) as '平均分数' from scores where user_qq='12302';
+* select max(score) as '最高分数' from scores where gno=1;
+```
+select
+sum(score) as '总分数',
+avg(score) as '平均分数',
+max(score) as '最高分数'
+from scores where user_qq='12301';
+```
