@@ -314,4 +314,4 @@ Query OK, 0 rows affected (0.38 sec)
 
 ***
 # 连接数据库
-***demo1.py(demo1.py)***
+***demo1.py(https://github.com/Harrdy2018/MySQL/blob/master/demo1.py)***
