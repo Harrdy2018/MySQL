@@ -511,3 +511,87 @@ select '总分',' ',sum(score) from scores where user_qq='12301'
 union all
 select '平均分',' ',AVG(score) from scores where user_qq='12301'
 ```
+
+***
+# 日期与时间函数
+```
+返回当前日期
+curdate() current_date()
+curdate()+0可以将当前日期值转化为数值型
+select curdate();
+
+返回当前时间
+curtime() current_time()
+curtime()+0可以将当前时间值转化为数值型
+
+返回当前日期和时间
+current_timestamp()
+localtime()
+now()
+sysdate()
+select now() as '此时此刻',sysdate() as '此时此刻2';
+
+获取月份
+month(date)
+monthname(date)
+select month('2015-09-22'),monthname('2015-09-22');
+
+获取星期
+dayname(date)
+dayofweek(date)
+weekday(date)
+week(date)
+weekofyear(date)
+获取天数
+dayofyear(date)
+dayofmonth(date)
+获取年份、季度、小时、分钟、秒钟
+year(date)
+quarter(date)
+hour(time)
+minute(time)
+second(time)
+```
+
+***
+# 数学函数
+```
+绝对值函数   abs(x)
+符号函数     sign(x)
+获取随机数函数    rand()  rand(x)种子
+获取整数的函数    ceil(x)/ceiling(x)  floor(x)
+四舍五入函数      round(x)  round(x,y)   truncate(x,y)
+求模             mod(x,y)   mod(31,8)=7
+幂运算           pow(x,y)/power(x,y)   exp(x) sqrt(x)
+角度弧度         radians(x)   degrees(x)
+圆周率函数       pi()
+三角函数         sin(x)  asin(x) cos(x)  acos(x)  tan(x)  atan(x)  cot(x)
+```
+
+***
+# 字符串函数
+```
+长度       char_length(s) length(s) 
+select char_length('abc');select char_length('你好么');字符的个数都为3
+select length('abc');select length('你好么');英文字母在内存中每个1字节,汉子在内存中每个3字节
+
+合并       concat(s1,s2...)如果一个参数为空整个为空
+           concat ws(x,s1,s2...)第一个为指定连接符
+替换       insert(s1,x,len,s2)  replace(s,s1,s2)
+截取       left(s,n)  right(s,n)
+重复生成字符串函数   repeat(s,n)
+大小写转换函数      lower(x)/lcase(x)    upper(x)/ucase(x)
+填充               lpad(s1,len,s2)    rpad(s1,len,s2)
+删除空格函数        ltrim(s)/rtrim(s)   trim(s)
+删除指定字符串      trim(s1 from s)
+获取子串            substring(s,n,len)  mid(s,n,len)
+返回指定位置字符串函数   elt(n,s1,s2...)
+返回指定字符串位置       field(s,s1,s2...)
+```
+
+***
+# 系统函数
+* 获取MySQL版本号的函数  version()
+* 查看当前用户的连接数   connection_id()
+* 查看当前所用数据库函数 datebase()  schema()
+* 获取用户名的函数       user() current_user() system_user() session_user()
