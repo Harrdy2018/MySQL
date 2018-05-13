@@ -464,3 +464,50 @@ and s.gno=5
 
 ***
 # 子查询
+```
+使用in关键字的子查询
+    查询游戏类型是“棋牌类”的游戏的分数信息
+游戏分数表中并未包含游戏类型信息
+思路一：采用连接查询
+思路二：分两步进行，首先找到所有“棋牌类”游戏的编号，再以这一组编号为查询依据完成查询
+select * from scores where gno in
+(select gno from games where gtype="棋牌")
+
+查询没有参与5号游戏的玩家QQ
+select user_qq from users
+where user_qq not in
+(select user_qq from scores where gno=5)
+
+使用exists关键字的子查询
+    如果存在昵称为“孙悟空”，则查询分数表中数据
+select * from scores
+where exists
+(select * from users where user_name='孙悟空')
+```
+
+***
+# 联合查询
+* 可以把多条查询语句所产生的结果集纵向连接为一体
+* 有all关键字可以显示全部数据（即重复的也显示出来）
+* 列的数量与类型要兼容
+
+```
+select user_name from users
+union
+select gname from games
+
+查询玩家表中所以女性玩家和生日为空的玩家
+select * from users where user_sex='女'
+union
+select * from users where user_birthday is null
+
+select * from users where user_sex='女' or user_birthday is null
+
+查询QQ号是"12301"的玩家所有分数并计算出总分和平均分，并显示到同一个结果集中
+select user_qq,gno,score from scores
+where user_qq='12301'
+union all
+select '总分',' ',sum(score) from scores where user_qq='12301'
+union all
+select '平均分',' ',AVG(score) from scores where user_qq='12301'
+```
