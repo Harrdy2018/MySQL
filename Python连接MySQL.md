@@ -269,3 +269,49 @@ mysql> show collation;
 +--------------------------+----------+-----+---------+----------+---------+
 222 rows in set (0.00 sec)
 ```
+
+***
+* 官方文档
+* 数据库字符集和校对
+```
+CREATE DATABASE db_name
+    [[DEFAULT] CHARACTER SET charset_name]
+    [[DEFAULT] COLLATE collation_name]
+例如:
+CREATE DATABASE db_name    DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+MySQL这样选择数据库字符集和数据库校对规则:
+         如果指定了CHARACTER SET X和COLLATE Y,那么采用字符集X和校对规则Y。
+         如果指定了CHARACTER SET X而没有指定COLLATE Y,那么采用CHARACTER SET X和CHARACTER SET X的默认校对规则。
+         否则,采用服务器字符集和服务器校对规则。
+```
+```MySQL
+mysql> create database lk20180513
+    -> default character set latin1
+    -> default collate latin1_swedish_ci;
+Query OK, 1 row affected (0.04 sec)
+```
+
+***
+* 表字符集和校对
+```
+每一个表有一个表字符集和一个校对规则,它不能为空。为指定表字符集和校对规则,CREATE TABLE 和ALTER TABLE语句有一个可选的子句:
+CREATE TABLE tbl_name (column_list)
+    [DEFAULT CHARACTER SET charset_name [COLLATE collation_name]]
+ALTER TABLE tbl_name
+    [DEFAULT CHARACTER SET charset_name] [COLLATE collation_name]
+MySQL按照下面的方式选择表字符集和 校对规则:
+         如果指定了CHARACTER SET X和COLLATE Y,那么采用CHARACTER SET X和COLLATE Y。
+         如果指定了CHARACTER SET X而没有指定COLLATE Y,那么采用CHARACTER SET X和CHARACTER SET X的默认校对规则。
+         否则,采用服务器字符集和服务器校对规则。
+如果在列定义中没有指定列字符集和校对规则,则默认使用表字符集和校对规则。表字符集和校对规则是MySQL的扩展;在标准SQL中没有。
+```
+```MySQL
+mysql> create table users(
+    -> id int(10) not null)
+    -> default character set utf8 collate utf8_bin;
+Query OK, 0 rows affected (0.38 sec)
+```
+
+***
+# 连接数据库
+***Source code()***
