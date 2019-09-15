@@ -40,6 +40,10 @@ update tempTable set name='Harrdy' where id=$i; \
 select * from tempTable where id=10; \
 select sleep(3); \
 \q;"
+if [ $? -gt 0 ]
+then echo "mysql have error"
+else echo "mysql have not error"
+fi
 echo "have done"
 done
 ```
